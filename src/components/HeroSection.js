@@ -75,7 +75,7 @@ const HeroSection = () => {
             justifyContent: "flex-start",
             alignItems: "center",
             textAlign: "center",
-            maxWidth: { xs: "80%", sm: "60%", md: "28%" },
+            maxWidth: { xs: "80%", sm: "60%", md: "50%" },
             mx: "auto",
           }}
         >
