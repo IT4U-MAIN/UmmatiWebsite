@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const StyledHero = styled(Box)({
   backgroundColor: "#F7F5EF",
   width: "100%",
-  padding: "20px 0",
+  paddingTop: "15px",
   boxSizing: "border-box",
   maxWidth: "100vw",
   overflow: "hidden",
@@ -51,9 +51,7 @@ const HeroSection = () => {
           boxSizing: "border-box",
           overflow: "hidden",
           marginTop: { sm: "20px" },
-          borderBottom: {
-            sm: "3px solid #ECE7DA",
-          },
+          borderBottom: "2px solid #ECE7DA",
         }}
       >
         {/* Left Image */}
@@ -74,10 +72,10 @@ const HeroSection = () => {
           sx={{
             display: "flex", // Enable flexbox
             flexDirection: "column",
-            justifyContent: "flex-start", // Align content at the top of the container
+            justifyContent: "flex-start",
             alignItems: "center",
             textAlign: "center",
-            maxWidth: { xs: "80%", sm: "60%", md: "28%" },
+            maxWidth: { xs: "80%", sm: "60%", md: "50%" },
             mx: "auto",
           }}
         >
@@ -133,9 +131,9 @@ const HeroSection = () => {
           sx={{
             width: { xs: "108px", sm: "20%", md: "35%" },
             height: { xs: "100px", sm: "auto" }, 
-            objectFit: "contain", // Ensures the image maintains its aspect ratio
+            objectFit: "contain",
             maxWidth: "100%",
-            alignSelf: "flex-end", // Align the image to the bottom
+            alignSelf: "flex-end", 
           }}
         />
       </Box>
@@ -143,9 +141,7 @@ const HeroSection = () => {
       <Box
         sx={{
           marginTop: "20px",
-          maxWidth: "100%",
-          mx: "auto",
-          padding: "5px",
+          width: "100%",
           alignItems: "center",
           justifyContent: "space-between",
           display: "flex",
@@ -159,20 +155,16 @@ const HeroSection = () => {
           { title: "Become A Member", image: podcastImage },
           { title: "Listen To Our Podcast", image: podcastImage },
         ].map((item, index) => (
-          <Box
-            key={index}
+          <React.Fragment key={index}>
+            <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              padding: "10px",
-              width: { xs: "100%", sm: "33.33%" },
+              px: "6px",
               textAlign: "center",
-              ...(index === 1 && {
-                borderLeft: { sm: "3px solid #ECE7DA" },
-                borderRight: { sm: "3px solid #ECE7DA" },
-              }),
+              width: { xs: "100%", sm: "calc(33.33% - 20px)" },
             }}
           >
             <Typography
@@ -180,10 +172,9 @@ const HeroSection = () => {
               sx={{
                 fontFamily: "Quicksand",
                 fontWeight: 700,
-                fontSize: { xs: "14px", sm: "18px", md: "24px", lg: "32px" },
-                lineHeight: { xs: "2px", sm: "30px", md: "30px", lg: "40px" },
+                fontSize: { xs: "14px",  lg: "32px" },
+                lineHeight: { xs: "2px", lg: "40px" },
                 color: "black",
-                marginBottom: "8px",
               }}
             >
               {item.title}
@@ -199,6 +190,27 @@ const HeroSection = () => {
               }}
             />
           </Box>
+
+        {/* Full-width line after each image */}
+        <Box
+          sx={{
+            width: "100%",
+            height: "2px",
+            backgroundColor: "#ECE7DA",
+            ...(index !==2 && {marginBottom: { xs: "20px", sm: "0" }}),
+            display: { xs: "block", sm: "none" },
+          }}
+        />
+        <Box
+          sx={{
+            width: "2px",
+            height: { xs: "0", sm: "160px", md: "200px", lg: "220px" },
+            backgroundColor: "#ECE7DA",
+            marginBottom: { xs: "0px", sm: "15px" },
+            display: { xs: "none", sm: "block" }
+          }}
+        />
+      </React.Fragment>
         ))}
       </Box>
     </StyledHero>
