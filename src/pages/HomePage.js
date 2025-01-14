@@ -127,9 +127,9 @@ const HomePage = () => {
         height: '100%',
       }}
     >
-      {loading ? (
+      {/* {loading ? (
         <Skeleton variant="rectangular" width="100%" height={200} sx={{ borderRadius: '12px' }} />
-      ) : (
+      ) : ( */}
         <Box sx={{ position: 'relative' }}>
           {!isIframeLoaded && (
             <Box
@@ -144,7 +144,7 @@ const HomePage = () => {
               <CircularProgress />
             </Box>
           )}
-          <iframe
+          {/* <iframe
           style={{
             borderRadius: '12px',
             width: '100%',
@@ -157,10 +157,13 @@ const HomePage = () => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
           onLoad={handleIframeLoad}
-          ></iframe>
+          ></iframe> */}
 
-        </Box>
-      )}
+            <div className="flex items-center justify-center">
+            <iframe width="560" height="315"   onLoad={handleIframeLoad} src="https://www.youtube.com/embed/8FInXCIi4Fw?si=gdk1TeLAyccsXu7M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+             </Box>
+      {/* )} */}
     </Typography>
     </Box>
 
